@@ -1,0 +1,15 @@
+{
+  "name": "@auto-assistant/db-handler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@supabase/supabase-js": "^2.33.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
