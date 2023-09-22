@@ -16,6 +16,6 @@ The goal is automate suggestions and notify users according their diseases. This
 | Usage                  | Command        |
 | ---------------------- | -------------- |
 | Install dependencies   | `pnpm install` |
-| Running in development | `pnpm dev:<app | hub | bot>`     |
+| Running in development | `pnpm dev:<app,hub,bot>`     |
 
 > ⚠️ Keep in mind you need to use pnpm and node >= 16.0
