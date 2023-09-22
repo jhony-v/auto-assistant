@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES5",
+    "allowJs": true,
+    "incremental": true,
+    "checkJs": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+  }
+}

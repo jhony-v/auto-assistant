@@ -1,11 +1,13 @@
-const dayjs = require("dayjs");
-const isBetween = require("dayjs/plugin/isBetween");
-const customParseFormat = require("dayjs/plugin/customParseFormat");
+import dayjs from "dayjs";
+import isBetween from "dayjs/plugin/isBetween";
+import duration from "dayjs/plugin/duration";
+import customParseFormat from  "dayjs/plugin/customParseFormat";
 
 dayjs.extend(customParseFormat);
+dayjs.extend(duration);
 dayjs.extend(isBetween);
 
-exports.createScheduledReminder = (input) => {
+export const createScheduledReminder = (input) => {
   const format = "YYYY-MM-DD";
   const payload = {
     start: dayjs().format(format),
@@ -16,7 +18,7 @@ exports.createScheduledReminder = (input) => {
   return payload;
 };
 
-exports.revalidateScheduledReminder = async (input) => {
+export const revalidateScheduledReminder = async (input) => {
   return new Promise((resolve) => {
 
     inRange = dayjs().isBetween(input.start, input.end, "day", "[]"),

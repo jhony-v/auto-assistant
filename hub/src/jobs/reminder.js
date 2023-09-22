@@ -1,7 +1,7 @@
-const { parentPort } = require("worker_threads");
-const { supabase, pusher } = require("../data/data");
-const { treatments } = require("../data/memory");
-const { revalidateScheduledReminder } = require("../data/schedule");
+import { parentPort } from "worker_threads";
+import { supabase, pusher } from "../data/data";
+import { treatments } from "../data/memory";
+import { revalidateScheduledReminder } from "../data/schedule";
 
 async function analizeTreatments() {
   return treatments.data.map(treatment => {

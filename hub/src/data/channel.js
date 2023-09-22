@@ -1,5 +1,5 @@
-const { supabase } = require("./data");
-const { createScheduledReminder } = require("./schedule");
+import { supabase } from "./data";
+import { createScheduledReminder } from "./schedule";
 
 const upcomingEventChannel = supabase.channel("upcomingEventChannel");
 
