@@ -1,9 +1,10 @@
 import Pusher from 'pusher';
 
+
 export const pusher = new Pusher({
-  appId: import.meta.env.VITE_PUSHER_APP_ID,
-  key: import.meta.env.VITE_PUSHER_APP_KEY,
-  secret: import.meta.env.VITE_PUSHER_SECRET,
-  cluster: import.meta.env.VITE_PUSHER_CLUSTER,
+  appId: process.env.VITE_PUSHER_APP_ID,
+  key: process.env.VITE_PUSHER_APP_KEY,
+  secret: process.env.VITE_PUSHER_SECRET,
+  cluster: process.env.VITE_PUSHER_CLUSTER,
   useTLS: true,
 });

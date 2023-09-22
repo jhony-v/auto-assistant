@@ -6,6 +6,5 @@
     "incremental": true,
     "checkJs": false,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-  }
+  },
 }

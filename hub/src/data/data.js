@@ -1,5 +1,5 @@
-import * as pushHandler from "@auto-assistant/push-handler/server"
-import * as dbHandler from "@auto-assistant/db-handler"
+import { pusher } from "@auto-assistant/push-handler/server"
+import { db } from "@auto-assistant/db-handler"
 
-export const pusher = pushHandler.pusher;
-export const supabase = dbHandler.db;
+export const pusher = pusher;
+export const supabase = db;
