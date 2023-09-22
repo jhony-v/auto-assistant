@@ -9,7 +9,7 @@ export const prompts = {
   },
   generateRecommendations({ matches }) {
     return `
-    Generate maximunly 5 recomendations of medication for the following symptoms: ${matches}.
+    Generate a maximum of 5 recomendations of medication for the following symptoms: ${matches}.
     Then, return in json format, without saying more things.
     Example: [ { "name": "", "description": "" , "usage": "por que medio", for: "matchs de la enfermedad separado por |" } ]
     `
