@@ -1,0 +1,16 @@
+{
+  "name": "@auto-assistant/core-handler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@auto-assistant/ai-handler": "workspace:*",
+    "@auto-assistant/db-handler": "workspace:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

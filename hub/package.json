@@ -21,7 +21,6 @@
     "nodemon": "^3.0.1"
   },
   "devDependencies": {
-    "tsx": "^3.12.10",
     "typescript": "^5.2.2"
   }
 }

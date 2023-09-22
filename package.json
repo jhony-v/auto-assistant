@@ -1,5 +1,5 @@
 {
-  "name": "auto-assistant",
+  "name": "@auto-assistant/web",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,13 +7,15 @@
     "./ai-handler",
     "./db-handler",
     "./push-handler",
-    "./app",
-    "./hub"
+    "./core-handler",
+    "./web",
+    "./hub",
+    "./bot"
   ],
   "scripts": {
     "dev:app": "cd consumer && pnpm dev",
     "dev:hub": "cd hub && pnpm dev",
-    "dev": "pnpm app && pnpm hub",
+    "dev:bot": "cd bot && pnpm dev",
     "shutdown:app": "kill-port --port 3001",
     "shutdown:hub": "kill-port --port 3000",
     "shutdown": "kill-port --port 3001,3000"
@@ -23,5 +25,8 @@
   "license": "ISC",
   "devDependencies": {
     "kill-port": "^2.0.1"
+  },
+  "dependencies": {
+    "tsx": "^3.12.10"
   }
 }

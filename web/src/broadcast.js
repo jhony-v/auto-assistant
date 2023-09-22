@@ -1,12 +1,14 @@
 import { pubsub, autoresponseChannel } from "./engine";
-import { completion } from "./completion";
-import { logger } from "./logger";
-import { messages } from "../../store";
 import { PUSHER_AUTORESPONSE_CHANNEL_BIND } from "@auto-assistant/push-handler"
+import ask from "./ask";
+import { logger } from "./logger";
+import { messages } from "./store";
 
 pubsub.on("MESSAGE_SEND", async (input) => {
-  const message = await completion({ input });
-  pubsub.emit("MESSAGE", { message });
+  await ask({ input, messages: messages.map(message => ({
+    role: message.role,
+    content: message.content
+  })) });
 });
 
 pubsub.on("MESSAGE_THINKING", async ({ message }) => {
@@ -15,8 +17,8 @@ pubsub.on("MESSAGE_THINKING", async ({ message }) => {
 
 pubsub.on("MESSAGE_SEND_BY_OWN", ({ message }) => {
   messages.push({
-    own: true,
     message: message,
+    role: "user",
     id: Date.now(),
   });
 });
@@ -27,9 +29,5 @@ autoresponseChannel.bind(PUSHER_AUTORESPONSE_CHANNEL_BIND, (payload) => {
 });
 
 pubsub.on("MESSAGE", (payload) => {
-  messages.push({
-    own: false,
-    message: payload.message,
-    id: Date.now(),
-  });
+  messages.push(payload);
 });

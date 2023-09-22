@@ -1,11 +1,11 @@
 <script setup>
 import { messages, input } from "./store";
-import { pubsub } from "./data/v1/engine";
-import "./data/v1/broadcast";
+import { pubsub } from "./engine";
+import "./broadcast";
 
 async function onSubmit() {
-  // pubsub.emit('MESSAGE_SEND_BY_OWN',input.value);
-  // pubsub.emit('MESSAGE_SEND',input.value);
+  pubsub.emit('MESSAGE_SEND_BY_OWN',input.value);
+  pubsub.emit('MESSAGE_SEND',input.value);
 }
 </script>
 <template>

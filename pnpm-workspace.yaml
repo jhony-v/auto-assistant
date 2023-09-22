@@ -1,6 +1,8 @@
 packages:
- - app
+ - web
  - hub
+ - bot
  - ai-handler
  - db-handler
+ - core-handler
  - push-handler

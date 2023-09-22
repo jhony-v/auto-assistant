@@ -4,3 +4,6 @@ data.csv
 dist
 build
 tsconfig.tsbuildinfo
+*.log
+bot_sessions
+./wsp/db.json
