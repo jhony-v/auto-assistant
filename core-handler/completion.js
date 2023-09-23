@@ -3,12 +3,9 @@ import { multiple_functions } from "./functions";
 import { logger } from "./logger";
 import { handlers } from "./handlers";
 import { TABLE } from "@auto-assistant/db-handler";
+import { prompts } from "./prompts";
 
-const systemRole = {
-  role: "system",
-  content:
-    "You are a medical assistant and helful for suggest me with medicine and detect possible diseases.",
-};
+const systemRole = { role: "system", content: prompts.defineRole() };
 
 export const completion = async ({
   input: { phone, message },
@@ -23,19 +20,23 @@ export const completion = async ({
       .eq("phone", phone)
       .limit(1)
       .maybeSingle();
+
     if (findUserByPhone.data === null) {
       supabase.from("users").insert({ phone, fullName: "" });
       logger("user created initially");
     }
+    console.log(messages)
 
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       max_tokens: 300,
-      messages: [systemRole, ...messages, prompt],
+      messages: [systemRole, prompt],
       functions: multiple_functions,
       function_call: "auto",
-      temperature: 0.2,
+      temperature: 0.7,
     });
+    console.log("openai response",JSON.stringify(response,null,2))
+    console.log("messages",JSON.stringify(messages,null,2))
     const responseMessage = response.choices[0].message;
 
     if (responseMessage.function_call) {

@@ -1,14 +1,24 @@
 import { pubsub, autoresponseChannel } from "./engine";
-import { PUSHER_AUTORESPONSE_CHANNEL_BIND } from "@auto-assistant/push-handler"
+import { PUSHER_AUTORESPONSE_CHANNEL_BIND } from "@auto-assistant/push-handler";
 import ask from "./ask";
 import { logger } from "./logger";
 import { messages } from "./store";
 
 pubsub.on("MESSAGE_SEND", async (input) => {
-  await ask({ input, messages: messages.map(message => ({
-    role: message.role,
-    content: message.content
-  })) });
+  const response = await ask({
+    input,
+    messages: messages.map((message) => ({
+      role: message.role,
+      content: message.message,
+    })),
+  });
+  response.forEach((answer) => {
+    pubsub.emit("MESSAGE", {
+      message: answer.content,
+      role: answer.role,
+      id: Date.now(),
+    });
+  });
 });
 
 pubsub.on("MESSAGE_THINKING", async ({ message }) => {

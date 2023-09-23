@@ -22,40 +22,6 @@ importers:
         specifier: ^4.7.1
         version: 4.8.0
 
-  app:
-    dependencies:
-      '@auto-assistant/core-handler':
-        specifier: workspace:*
-        version: link:../core-handler
-      '@auto-assistant/db-handler':
-        specifier: workspace:*
-        version: link:../db-handler
-      '@auto-assistant/push-handler':
-        specifier: workspace:*
-        version: link:../push-handler
-      '@supabase/supabase-js':
-        specifier: ^2.33.2
-        version: 2.36.0
-      mitt:
-        specifier: ^3.0.1
-        version: 3.0.1
-      pusher-js:
-        specifier: ^8.3.0
-        version: 8.3.0
-      string-comparison:
-        specifier: ^1.2.0
-        version: 1.2.0
-      vue:
-        specifier: ^3.3.4
-        version: 3.3.4
-    devDependencies:
-      '@vitejs/plugin-vue':
-        specifier: ^4.2.3
-        version: 4.3.4(vite@4.4.9)(vue@3.3.4)
-      vite:
-        specifier: ^4.4.5
-        version: 4.4.9
-
   bot:
     dependencies:
       '@auto-assistant/ai-handler':
@@ -146,6 +112,9 @@ importers:
 
   web:
     dependencies:
+      '@auto-assistant/ai-handler':
+        specifier: workspace:*
+        version: link:../ai-handler
       '@auto-assistant/core-handler':
         specifier: workspace:*
         version: link:../core-handler
@@ -177,42 +146,6 @@ importers:
       vite:
         specifier: ^4.4.5
         version: 4.4.9
-
-  wsp:
-    dependencies:
-      '@auto-assistant/ai-handler':
-        specifier: workspace:*
-        version: link:../ai-handler
-      '@auto-assistant/core-handler':
-        specifier: workspace:*
-        version: link:../core-handler
-      '@auto-assistant/db-handler':
-        specifier: workspace:*
-        version: link:../db-handler
-      '@bot-whatsapp/bot':
-        specifier: latest
-        version: 0.1.32
-      '@bot-whatsapp/cli':
-        specifier: latest
-        version: 0.1.32
-      '@bot-whatsapp/database':
-        specifier: latest
-        version: 0.1.32
-      '@bot-whatsapp/portal':
-        specifier: latest
-        version: 0.1.32
-      '@bot-whatsapp/provider':
-        specifier: latest
-        version: 0.1.32
-      '@whiskeysockets/baileys':
-        specifier: ^6.4.0
-        version: 6.4.1
-      mime-types:
-        specifier: 2.1.35
-        version: 2.1.35
-      wa-sticker-formatter:
-        specifier: 4.3.2
-        version: 4.3.2
 
 packages:
 

@@ -10,15 +10,15 @@ upcomingEventChannel.subscribe(console.log);
 export const openai =aiHandler.openai;
 
 
-export const buildCompletion = async ({ messages, max_tokens = 100, temperature = 0.1 }) => {
+export const buildCompletion = async ({ messages, max_tokens = 100, temperature = 0.1, top_p }) => {
   const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     max_tokens,
     messages: [
-      { role: 'system', content: 'Eres un medico asistente genial y me ayudarás a resolver consultas' },
       ...messages
     ],
     temperature,
+    top_p,
   })
   return response.choices[0];
 }

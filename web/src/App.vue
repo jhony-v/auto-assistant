@@ -4,8 +4,8 @@ import { pubsub } from "./engine";
 import "./broadcast";
 
 async function onSubmit() {
-  pubsub.emit('MESSAGE_SEND_BY_OWN',input.value);
   pubsub.emit('MESSAGE_SEND',input.value);
+  pubsub.emit('MESSAGE_SEND_BY_OWN',input.value);
 }
 </script>
 <template>
